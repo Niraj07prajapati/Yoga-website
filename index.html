@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Source+Code+Pro:ital@1&family=Ubuntu:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .navbar ul li{
+    list-style: none;
+    display: inline-block;
+    position: relative;
+ }
+
+ .navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+ }
+     .navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: red;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+ }
+ .navbar ul li:hover::after{
+    width: 100%;
+ }
+    .xyz {
+      position: relative;
+      background-color: black;
+      height: 75vh;
+      min-height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .xyz video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: 100%;
+      height: auto;
+      z-index: 0;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    .xyz .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .xyz .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    /* Media Query for devices with coarse pointers and no hover functionality */
+
+    /* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
+    @media (pointer: coarse) and (hover: none) {
+      .xyz {
+        background: black no-repeat center center scroll;
+      }
+
+      .xyz video {
+        display: none;
+      }
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    textarea {
+      
+      height: 100px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .sdc:hover{
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="ab">
+    <header class="header">
+      <h1 class="header-title1">
+        <img src="img/logo.png" alt="logo" width="7%">
+     <span class="logo-text">Atma Darshan Yoga Kendra</span>
+      </h1>
+      <nav class="header-nav navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link"> About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="index3.html" class="nav-link">Classes</a>
+            </li>
+            <li class="nav-item">
+              <a href="instructor.html" class="nav-link">Instructors</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link" >Contact Us</a>
+  </li>
+           
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style = "color: Black ">
+      <div class="modal-header" style="background: red">
+        <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Yoga Registration Form</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form aria-controls="form-control">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+    <label for="yogaType">Select the Type of Yoga Class:</label>
+    <select id="yogaType" name="yogaType"  required>
+      <option value="">Select</option>
+      <option value="hatha">Hatha Yoga</option>
+      <option value="vinyasa">Vinyasa Flow</option>
+      <option value="ashtanga">Ashtanga Yoga</option>
+      <option value="yin">Yin Yoga</option>
+      <option value="restorative">Restorative Yoga</option>
+    </select>
+
+    <label for="experience">Experience Level:</label>
+    <select id="experience" name="experience" required>
+      <option value="">Select</option>
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select>
+    <label for="yogaType">Write your message</label>
+    <div class="contact-input-container">
+      <textarea class="msg-input" cols="30" rows="10" placeholder="Your message"></textarea>
+      </div>
+      <label>
+      <input type="checkbox" id="terms" name="terms" required>
+      I agree to the terms and conditions.
+    </label>
+    <button type="submit" class="cta-button">Submit</button>
+  </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="color: black;">
+      <div class="modal-header" style="background: red;">
+        <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Login</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="userDash.html" method="POST" aria-controls="form-control">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+          <button type="submit" class="cta-button">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </ul>
+        </div>
+      </nav>
+      <div class="line"></div>
+    </header>
+  </section>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  
+    <title>Atma darshan yoga kendra</title>
+   
+      <h1 class="slide-animation" style="color: red;">Welcome to Atma Darshan Yoga Kendra</h1>
+      <section class="xyz">
+    <div class="overlay"></div>
+    <video playsinline autoplay muted loop>
+      <source src="img/2.mp4" type="video/mp4">
+    </video>
+    <div class="container h-100">
+      <div class="d-flex h-100 text-center align-items-center">
+        <div class="w-100 text-white">
+          <h1 style="color: yellow;">Welcome to <strong style="color: red;">A</strong>tma <strong style="color: red;">D</strong>arshan <strong style="color: red;">Y</strong>oga <strong style="color: red;">K</strong>endra</h1>
+          <p style="color: yellow;">Start your journey to wellness and inner peace</p>
+          <section class="banner">
+            <div>
+              <h2 style="color: white;">Let's do Yoga together.</h2>
+              <form id="form" action="#">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="submit" id="submit" value="Get started">
+              </form>
+            </div>
+          </section>
+          <a href="classes.html" class="cta-button">Explore Courses</a>
+         <a href="#" class="cta-button" data-toggle="modal" data-target="#exampleModal">Register</a>
+         <a href="userDash.html" class="cta-button" data-toggle="modal" data-target="#loginModal">Login</a>
+  </section>
+
+<section id="section1" class="container-fluid">
+        <div class="row align-items-center mt-5">
+            <div class="col-md-7 mt-3">
+                <img src="img/np6.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-5 head-div">
+                <div class="row justify-content-center">
+                    <div class="col-11 mt-5 mb-md-0 mx-3 border border-1 rounded-1 shadow p-3 mb-5 bg-body rounded text-center content1">
+                        <h2>Yoga for Flexible Mind and Body</h2>
+                        <p>”True yoga is not about the shape of your body, but the shape of your life. Yoga is not to be performed; yoga is to be lived. Yoga doesn’t care about what you have been; yoga cares about the person you are becoming. Yoga is designed for a vast and profound purpose, and for it to be truly called yoga, its essence must be embodied.” – <span>Aadil Palkhivala</span></p>
+                        <button class="btn1 border px-4 py-2 shadow mb-2 bg-body rounded" style="color: black;">KNOW MORE</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="section2" class="container-fluid m-2 pb-5">
+        <div class="row">
+            <div class="col-md-4 head-div">
+                <div class="row justify-content-center">
+                    <div class="col-11 mt-5 mb-md-0 mx-3 border border-1 rounded-1 shadow p-3 mb-5 bg-body rounded text-center content1">
+                        <h2>Yoga is a mind and body practice</h2>
+                        <p>”The body benefits from movement, and the mind benefits from stillness.” — <span>Sakyong Mipham</span></p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-8 mt-3">
+                        <img src="img/yog.jpg" alt="" class="img-fluid border border-1 rounded-1 shadow-lg p-3 mb-5 bg-body rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <section class="container-fluid mb-5">
+        <div class="row">
+            <div class="col-md-8 order-2 order-md-1">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mx-5 mt-4">
+                        <img src="img/np9.jpeg" alt="" class="img-fluid shadow bg-body rounded">
+                    </div>
+                    <div class="col-md-4 mt-5">
+                        <img src="img/np10.jpg" alt="" class="img-fluid shadow bg-body rounded">
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <img src="img/np12.jpg" alt="" class="img-fluid shadow bg-body rounded">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 order-1 order-md-2">
+                <div class="card border border-1 rounded-1 shadow bg-body rounded text-center mt-5 head-div1">
+                    <h1>Why is yoga usefull ?</h1>
+                    <div class="card-body">
+                    <p class="card-text">
+                        The word “yoga” comes from the root word “yuj,” which means “to yoke” or “to bind.” The word itself has numerous meanings, from an astrological conjunction to matrimony, with the underlying theme being connection.Yoga asana is the physical practice and postures of yoga.Yoga is incredibly beneficial to our overall well-being.
+                    </p>
+                    <button class="btn1 border px-4 py-2 shadow mb-2 bg-body rounded" style="color: black;" >KNOW MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="section4" class="container-fluid mt-2 m-2 pb-5">
+        <div class="row text-center">
+            <h1 class="mt-4 head-details4">Yoga Classes</h1>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-3 mb-5">
+                <div class="class-content">
+                    <img src="img/1.jpg" alt="" class="img-fluid blur border-start border-5 rounded-start border-dark">
+                    <img src="img/2.jpg" alt="" class="class-img img-fluid">
+                </div>
+                <h2 class="class-heading mt-3 text-center">HATHA YOGA</h2>
+            </div>
+            <div class="col-md-3 justify-content-center">
+                <div class="class-content">
+                    <img src="img/yog.jpg" alt="" class="img-fluid blur border-start border-5 rounded-start border-dark">
+                    <img src="img/21.jpg" alt="" class="class-img img-fluid">
+                </div>
+                <h2 class="class-heading mt-3 text-center">VIRTUAL CLASSES</h2>
+            </div>
+            <div class="col-md-3">
+                <div class="class-content">
+                    <img src="img/25.jpg" alt="" class="img-fluid blur border-start border-5 rounded-start border-dark">
+                    <img src="img/22.jpg" alt="" class="class-img img-fluid">
+                </div>
+                <h2 class="class-heading mt-3 text-center">ALL CLASSES</h2>
+            </div>
+            <div class="col-md-3">
+                <div class="class-content">
+                    <img src="img/23.jpg" alt="" class="img-fluid blur border-start border-5 rounded-start border-dark">
+                    <img src="img/24.jpg" alt="" class="class-img img-fluid">
+                </div>
+                <h2 class="class-heading mt-3 text-center">MEDITATION</h2>
+            </div>
+        </div>
+    </section>
+   
+    <section id="blog">
+    <div class="container3">
+        <div class="row">
+            <div class="col-md-12 heading">
+                <img src="img/26.jpg" alt="Yoga Image" width="100%">
+                <h2>Discover the Benefits of Yoga</h2>
+                <h3>For Men, Women, and Children</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="blog-article">
+                    <figure>
+                        <a href="#"><img src="img/10.jpg" alt="Yoga Article 1" width="260" height="228"></a>
+                    </figure>
+                    <div class="article-content">
+                        <h4><a href="#">Unlocking the Power of Yoga: A Beginner's Guide</a></h4>
+                        <p><span>December 23, 2022</span>Posted by <b><a href="blog_single.html">Shyam</a></b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-article">
+                    <figure>
+                        <a href="#"><img src="img/2.jpg" alt="Yoga Article 2" width="260" height="228"></a>
+                    </figure>
+                    <div class="article-content">
+                        <h4><a href="#">The Power of Yoga: Enhancing Your Mind and Body Connection</a></h4>
+                        <p><span>December 23, 2022</span>Posted by <b><a href="blog_single.html">Rahul</a></b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="blog-article">
+                    <figure>
+                        <a href="#"><img src="img/mission6.jpg" alt="Yoga Article 3" width="260" height="228"></a>
+                    </figure>
+                    <div class="article-content">
+                        <h4><a href="#">Yoga for Stress Relief: Find Peace and Tranquility</a></h4>
+                        <p><span>December 23, 2016</span>Posted by <b><a href="blog_single.html">Vijay</a></b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-article">
+                    <figure>
+                        <a href="#"><img src="img/cl1.jpg" alt="Yoga Article 4" width="260" height="228"></a>
+                    </figure>
+                    <div class="article-content">
+                        <h4><a href="#">Yoga for Flexibility: Unleashing Your Body's Potential</a></h4>
+                        <p><span>December 23, 2016</span>Posted by <b><a href="blog_single.html">Murti</a></b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="btn btn-success" href="blog-page.html" role="button">Explore More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  
+    <footer>
+      
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+
+<body>
+    <div class="container-fluid">
+    <footer class="footer">
+        <div class="col-lg-12">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Meet the Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="instructor.html">Instructors</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="#section4">Classes</a></li>
+                </ul>
+            </div>
+            
+        <div class="footer-content">
+        <h2 class="footer-heading">Stay Connected</h2>
+            <ul class="social-icons-row">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </ul>
+            
+            <p class="footer-description">Subscribe to our newsletter for the latest updates</p>
+            <form class="footer-form">
+                <input type="email" placeholder="Enter your email address" class="footer-input" required>
+                <button type="submit" class="footer-button">Subscribe</button>
+            </form>
+        </div>
+        <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="#">Email Us</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+       
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#">Whitepapers</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-legal">
+            <p>&copy; 2023 Atma darshan yoga kendra. All Rights Reserved.</p>
+        </div>
+        </div>
+        </div>
+        </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha384-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+  </footer>
+</body>
+
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</html> 
